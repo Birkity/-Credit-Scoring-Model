@@ -1,0 +1,6 @@
+venv/
+nltk_data/
+ven/
+Data/
+data.csv
+dvc_storage/
