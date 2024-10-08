@@ -1,22 +1,20 @@
 from flask import Flask, request, jsonify
 from joblib import load
 import pandas as pd
+import os
 
 app = Flask(__name__)
 
-model = load('../models/credit_model.joblib')
+model_path = os.path.join(os.path.dirname(__file__), '../models/credit_model.joblib')
+model = load(model_path)
 
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
     input_data = pd.DataFrame([data])
-    
-    prediction = model.predict(input_data)[0]  
-    
-   
-    prediction_str = str(prediction)
-    
-    return jsonify({'prediction': prediction_str})
+    prediction = model.predict(input_data)
+    return jsonify({'prediction': prediction[0]})
 
 if __name__ == '__main__':
     app.run(debug=False)
+
