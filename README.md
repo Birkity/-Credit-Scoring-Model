@@ -1,17 +1,9 @@
-Credit Scoring System using Transaction Data
 
-This project focuses on building a credit scoring system by analyzing transaction data from various customers. 
-The goal is to classify users as high-risk or low-risk based on their transaction behavior. We leverage aggregate 
-features derived from the transaction data to build a customer-level profile, identifying patterns that distinguish 
-between high and low-risk users. The data includes customer transaction details, such as transaction amounts, dates,
-and categories, allowing us to perform a detailed analysis of user behavior.
 
-The project begins with feature engineering, which involves aggregating key transactional features like the total transaction
-amount, average transaction amount, and frequency of transactions per customer. We also extract useful date and time components,
-such as transaction hour, day, month, and year. These features enable us to explore customer behavior patterns, particularly in terms of how frequently
-customers transact and how recently they engaged in transactions. The main aim is to construct a set of robust features that serve as the foundation for risk classification.
+# Credit Scoring Model for Buy-Now-Pay-Later Service
 
-To prepare the data for model building, we apply various techniques to handle missing values, encode categorical variables, and scale numerical features. The pipeline includes 
-one-hot encoding for categorical features, normalization/standardization for numerical features, and methods to handle missing data. Additionally, we calculate correlations between 
-features and perform multicollinearity checks using the Variance Inflation Factor (VIF) to ensure that the data is suitable for model training and prediction.
+This project develops a credit scoring model for Bati Bank's partnership with an eCommerce company offering a buy-now-pay-later service. The goal is to predict credit risk and assign appropriate loan terms based on customer transaction data. The model uses historical transaction records to classify users as high risk (likely to default) or low risk (unlikely to default), enabling informed lending decisions for the new buy-now-pay-later service.
 
+The project involves several key steps: data preparation, feature engineering, modeling, and API development. I started by loading and preprocessing the dataset, then perform exploratory data analysis to understand the data distribution. Feature engineering techniques are applied to extract meaningful predictors from the transaction data. Multiple machine learning models are trained and evaluated, including logistic regression, and random forests. Hyperparameter tuning is performed to optimize model performance. Finally, a REST API is developed to serve predictions in real-time.
+
+The credit scoring model is deployed using Flask and Render, allowing for easy scaling and integration with the eCommerce platform. The API accepts customer transaction data and returns a risk score and recommended loan terms. Extensive testing is conducted to ensure accuracy and reliability of the predictions. This project demonstrates the application of data science techniques to solve a critical business problem in financial services, enabling safer lending practices and improved customer experiences for the buy-now-pay-later service.
